@@ -1,0 +1,19 @@
+server:
+  port: ${SERVER_PORT:8080}
+spring:
+  application:
+    name: spring-with-docker
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:postgres}
+    password: ${DB_PASSWORD:elyor1202}
+    username: ${DB_USERNAME:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
