@@ -1,5 +1,10 @@
+FROM openjdk:17 AS BUILDER
+COPY gradle gradle/
+COPY gradlew settings.gradle build.gradle ./
+COPY . .
+RUN --mount=type=cache,target=/root/.gradle ./gradlew --no-daemon -i  clean build
+
 FROM openjdk:17
-EXPOSE 9090
-ARG JAR_FILE=build/libs/SpringDocker-0.0.1-SNAPSHOT.jar
-ADD ${JAR_FILE} spring-docker
-ENTRYPOINT ["java","-jar","spring-docker"]
+COPY --from=BUILDER build/libs/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
