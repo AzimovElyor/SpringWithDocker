@@ -5,9 +5,9 @@ spring:
     name: spring-with-docker
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${DB_HOST:dpg-cl5r18s72pts73es12r0-a.oregon-postgres.render.com}:${DB_PORT:5432}/${DB_NAME:docker_2i5s}
-    password: ${DB_PASSWORD:vNxr5ZhOGJQCkTqXCrCSsKJl88iKDGqN}
-    username: ${DB_USERNAME:elyor}
+    url: jdbc:postgresql://roundhouse.proxy.rlwy.net:35520/railway
+    password: 6FfG2d6df6FDAG5dDcfA1D4C6De25*5d
+    username: postgres
   jpa:
     hibernate:
       ddl-auto: create
